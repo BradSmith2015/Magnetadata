@@ -80,7 +80,9 @@ def credentials_to_dict(credentials):
 
 
 def print_index():
-    return '<a href="/yo">Test that shit</a>'
+    return '
+     <meta name="google-site-verification" content="JpMHNcgshx_7T3OPE15vSIA3hIliZgX3BOYs0qeDp9A" />
+    <a href="/yo">Test that shit</a> '
 
 if __name__ == '__main__':
   app.run()
