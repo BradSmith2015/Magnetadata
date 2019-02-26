@@ -83,13 +83,6 @@ def print_index():
     return '<a href="/yo">Test that shit</a>'
 
 if __name__ == '__main__':
-  # When running locally, disable OAuthlib's HTTPs verification.
-  # ACTION ITEM for developers:
-  #     When running in production *do not* leave this option enabled.
-
-
-  # Specify a hostname and port that are set as a valid redirect URI
-  # for your API project in the Google API Console.
   app.run()
 
 
