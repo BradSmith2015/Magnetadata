@@ -9,7 +9,7 @@ import google_auth_oauthlib.flow
 import googleapiclient.discovery
 
 CLIENT_SECRETS_FILE = 'client_secert.json'
-SCOPES = ['https://www.googleapis.com/auth/yt-analytics.readonly','https://www.googleapis.com/auth/plus.me']
+SCOPES = ['https://www.googleapis.com/auth/yt-analytics.readonly']
 
 API_SERVICE_NAME = 'youtubeAnalytics'
 API_VERSION = 'v2'
@@ -50,7 +50,7 @@ def authorize():
     # re-prompting the user for permission. Recommended for web server apps.
     access_type='offline',
     # Enable incremental authorization. Recommended as a best practice.
-    include_granted_scopes='true')
+    )
     flask.session['state'] = state
     return flask.redirect(authorization_url)
 @app.route('/hello')
