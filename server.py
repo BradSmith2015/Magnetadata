@@ -37,8 +37,13 @@ def test_api_request():
     metrics="viewerPercentage",
     filters="country==US",
     sort="gender,ageGroup").execute()
+    results2 = youtube.reports().query(ids='channel==MINE',
+    startDate = '2014-06-01',
+    endDate = '2018-06-01',
+    metrics="views,comments,likes,dislikes,estimatedMinutesWatched,averageViewDuration",
+    filters="claimedStatus==claimed").execute()
     flask.session['credentials'] = credentials_to_dict(credentials)
-    return flask.jsonify(**results)
+    return (flask.jsonify(**results),flask.jsonify(**results2))
 
 @app.route('/yo')
 def authorize():
