@@ -41,7 +41,7 @@ def test_api_request():
     startDate = '2014-06-01',
     endDate = '2018-06-01',
     metrics="views,comments,likes,dislikes,estimatedMinutesWatched,averageViewDuration",
-    filters="claimedStatus==claimed & country == US").execute()
+    filters="country == US").execute()
     flask.session['credentials'] = credentials_to_dict(credentials)
     return (flask.jsonify(**results),flask.jsonify(**results2))
 
