@@ -43,7 +43,7 @@ def test_api_request():
     metrics="views,comments,likes,dislikes,estimatedMinutesWatched,averageViewDuration",
     filters="country==US").execute()
     flask.session['credentials'] = credentials_to_dict(credentials)
-    return [flask.jsonify(**results),flask.jsonify(**results2)
+    return [flask.jsonify(**results),flask.jsonify(**results2)]
 
 @app.route('/yo')
 def authorize():
