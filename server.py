@@ -30,20 +30,20 @@ def test_api_request():
       **flask.session['credentials'])
     youtube = googleapiclient.discovery.build(
       API_SERVICE_NAME, API_VERSION, credentials=credentials)
-    """results=youtube.reports().query(ids='channel==MINE',
+    results=youtube.reports().query(ids='channel==MINE',
     startDate = '2014-06-01',
     endDate = '2018-06-01',
     dimensions="ageGroup,gender",
     metrics="viewerPercentage",
     filters="country==US",
-    sort="gender,ageGroup").execute()"""
-    results = youtube.reports().query(ids='channel==MINE',
+    sort="gender,ageGroup").execute()
+    results2 = youtube.reports().query(ids='channel==MINE',
     startDate = '2014-06-01',
     endDate = '2018-06-01',
     metrics="views,comments,likes,dislikes,estimatedMinutesWatched,averageViewDuration",
     filters="country==US").execute()
     flask.session['credentials'] = credentials_to_dict(credentials)
-    return (flask.jsonify(**results))
+    return [flask.jsonify(**results),flask.jsonify(**results2)
 
 @app.route('/yo')
 def authorize():
